@@ -1,0 +1,45 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #F7F8F8;
+}
+.title{
+	margin-top: 100px;
+	text-align: center;
+}
+.small_title{
+	margin-top: 20px;
+	text-align: center;
+}
+.login{
+	width: 310px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text_input{
+	font-size: 20px;
+	width: 300px;
+	height: 50px;
+}
+.submit_input{
+	width: 200px;
+	font-size: 20px;
+}
+.line{
+	overflow: hidden;
+}
+.seat{
+	margin: 2px;
+	float:left;
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+}
+
+.enable{
+	background:black;
+}
+.disable{
+	background: red;
+}

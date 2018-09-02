@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>극장 예매 시스템</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		.line{
+			overflow: hidden;
+		}
+		.seat{
+			margin: 2px;
+			float:left;
+			width: 30px;
+			height: 30px;
+			border-radius: 3px;
+		}
+
+		.enable{
+			background:black;
+		}
+		.disable{
+			background: red;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect();
+		socket.on('reserve',function(data){
+				for(var i=0;i<data.number;i++){
+					var $target = $('div[data-x=' + (+data.x + i) + '][data-y=' + data.y + ']');
+					$target.removeClass('enable');
+					$target.addClass('disable');	
+			}
+		});
+		socket.on('cancel',function(data){
+				for(var i=0;i<data.number;i++){
+					var $target = $('div[data-x=' + (+data.x + i) + '][data-y=' + data.y + ']');
+					$target.removeClass('disable');
+					$target.addClass('enable');
+				}
+			
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			var number = prompt('몇명 관람하시나요?');
+			var onClickSeat = function(){
+				var x = $(this).attr('data-x');
+				var y = $(this).attr('data-y');
+				if(confirm('예약/취소하시겠습니까?')){
+					socket.emit('check',{
+						x:x,
+						y:y,
+						number:number
+					});
+				}else{
+					alert("요청이 취소되었습니다.")
+				}
+			};
+		$.getJSON('/seats',{dummy:new Date().getTime()},function(data){
+			$.each(data,function(indexY,line){
+				var $line = $('<div></div>').addClass('line');
+				$.each(line,function(indexX,seat){
+					var $output = $('<div></div>',{
+						'class':'seat',
+						'data-x':indexX,
+						'data-y':indexY
+					}).appendTo($line);
+					if(seat == 1){
+						$output.addClass('enable').on('click',onClickSeat);
+					}else if(seat == 2){
+						$output.addClass('disable');
+					}
+				});
+				$line.appendTo('body');
+			});
+		});
+	});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

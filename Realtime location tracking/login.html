@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		fieldset{
+			width: 20%;
+			text-align: center;
+		}
+	</style>
+	<meta charset="utf-8">
+	<title>LogIn</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		$(document).ready(function(){
+			var socket = io.connect();
+			$('#register').on('click',function(){
+				location.href = "register";
+			});
+			$('#login').on('click',function(){
+				var id = $('#id').val();
+				var password = $('#password').val();
+				$.getJSON('/check',{"name":id},function(data){
+					$.each(data,function(index,item){
+						if(item.password == password){
+							location.href = 'tracker';
+						}else{
+							alert('아이디/비밀번호를 다시 확인해주세요.')
+						}
+					});
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<fieldset>
+		<legend>LogIn</legend>
+		<form method="post">
+			<table>
+				<tr>
+					<td>id: </td>
+					<td><input type="text" name="id" id="id" placeholder="입력해주세요."></td>
+				</tr>
+				<tr>
+					<td>password: </td>
+					<td><input type="password" name="password" id="password" placeholder="입력해주세요."></td>
+				</tr>
+			</table>
+			<button id="login">로그인</button>
+		</form>
+			<button id="register">회원가입</button>
+	</fieldset>
+</body>
+</html>

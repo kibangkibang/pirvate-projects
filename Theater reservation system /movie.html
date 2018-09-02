@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/movie.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <!-- navigation bar -->
+  <div class="navbar">
+    <a class="logo" href="#">
+      <img src="images/Videocam.png" width="34" height="33">
+    </a>
+
+    <ul class="menu-left navbar-menu">
+      <li class="menu-item"><a href="#">인기차트</a></li>
+      <li class="menu-item"><a href="#">추천영화</a></li>
+      <li class="menu-item"><a href="#">영화감상평</a></li>
+    </ul>
+
+    <div class="search-box">
+      <img src="images/search.png" width="24" height="24">
+      <input type="text" placeholder="오늘은 무슨 영화를 볼까?">
+    </div>
+
+    <ul class="menu-right navbar-menu">
+      <li class="menu-item"><a href="register">회원가입</a></li>
+      <li class="menu-item"><a href="index">로그인</a></li>
+    </ul>
+  </div>
+
+  <!-- go to top button -->
+  <button class="to-top-btn">
+    <img src="images/arrow.png" width="24" height="24">
+  </button>
+
+  <!-- main -->
+  <div class="container">
+    <div class="popular">
+      <h2>인기 검색어</h2>
+
+      <ol class="top10">
+        <li class="keyword"><a href="#">어벤져스:인피니티 워</a></li>
+        <li class="keyword"><a href="#">앤트맨과 와스프</a></li>
+        <li class="keyword"><a href="#">공작</a></li>
+        <li class="keyword"><a href="#">독전</a></li>
+        <li class="keyword"><a href="#">마녀</a></li>
+        <li class="keyword"><a href="#">인크레더블2</a></li>
+        <li class="keyword"><a href="#">호텔 아르테미스</a></li>
+        <li class="keyword"><a href="#">이터널 선샤인</a></li>
+        <li class="keyword"><a href="#">변산</a></li>
+        <li class="keyword"><a href="#">너의 췌장을 먹고 싶어</a></li>
+      </ol>
+    </div>
+
+    <ul class="playlists">
+      <li class="playlist">
+
+        <img class="pl-img" src="images/인피니티워.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+
+            <h2 class="pl-title"><a href="#">어벤져스: 인피니티 워</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#액션</a></li>
+            <li class="tag"><a href="#">#판타지</a></li>
+            <li class="tag"><a href="#">#마블</a></li>
+            <li class="tag"><a href="#">#인피니티 스톤</a></li>
+            <li class="tag"><a href="#">#타노스</a></li>
+            <li class="tag"><a href="#">#아이언맨</a></li>
+            <li class="tag"><a href="#">#스탠리</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">9.0</span>
+            </div>
+          </div>
+          <div class="btn-wrapper">
+            <button class="reserve" name="Avengers">예매하기</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/공작.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">공작 (8월 개봉)</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#범죄</a></li>
+            <li class="tag"><a href="#">#스릴러</a></li>
+            <li class="tag"><a href="#">#황정민</a></li>
+            <li class="tag"><a href="#">#윤종빈 감독</a></li>
+            <li class="tag"><a href="#">#1000만</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">5.0</span>
+            </div>
+            <div class="btn-wrapper">
+              <button class="reserve" name="공작">예매하기</button>
+            </div>
+          </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/앤트맨과 와스프.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">앤트맨과 와스프</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#앤트맨</a></li>
+            <li class="tag"><a href="#">#와스프</a></li>
+            <li class="tag"><a href="#">#행크핌</a></li>
+            <li class="tag"><a href="#">#마블</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">8.4</span>
+         </div>
+         <div class="btn-wrapper">
+           <button class="reserve" name="앤트맨과 와스프">예매하기</button>
+         </div>
+       </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/독전.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">독전</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#독한놈들의 전쟁</a></li>
+            <li class="tag"><a href="#">#류준열</a></li>
+            <li class="tag"><a href="#">#조진웅</a></li>
+            <li class="tag"><a href="#">#차승원</a></li>
+            <li class="tag"><a href="#">#김주혁</a></li>
+            <li class="tag"><a href="#">#김성령</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">7.2</span>
+            </div>
+            <div class="btn-wrapper">
+              <button class="reserve" name="독전">예매하기</button>
+            </div>
+          </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/마녀.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">마녀</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#마녀</a></li>
+            <li class="tag"><a href="#">#김다미</a></li>
+            <li class="tag"><a href="#">#박희순</a></li>
+            <li class="tag"><a href="#">#액션</a></li>
+            <li class="tag"><a href="#">#미스터리</a></li>
+            <li class="tag"><a href="#">#박훈정 감독</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">7.6</span>
+            </div>
+            <div class="btn-wrapper">
+              <button class="reserve" name="마녀">예매하기</button>
+            </div>
+          </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/인크레더블2.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">인크레더블2</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#인크레더블1</a></li>
+            <li class="tag"><a href="#">#애니메이션</a></li>
+            <li class="tag"><a href="#">#애기가 제일 쎄</a></li>
+            <li class="tag"><a href="#">#투명인간</a></li>
+            <li class="tag"><a href="#">#퀵 실버</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">5.8</span>
+            </div>
+            <div class="btn-wrapper">
+              <button class="reserve" name="인크레더블2">예매하기</button>
+            </div>
+          </div>
+      </li>
+
+      <li class="playlist">
+
+        <img class="pl-img" src="images/호텔 아르테미스.jpg" width="397" height="440">
+
+        <div class="pl-info">
+          <div class="header">
+            <h2 class="pl-title"><a href="#">호텔 아르테미스</a></h2>
+          </div>
+
+          <ul class="tags">
+            <li class="tag"><a href="#">#범죄</a></li>
+            <li class="tag"><a href="#">#아르테미스</a></li>
+            <li class="tag"><a href="#">#조디 포스터</a></li>
+            <li class="tag"><a href="#">#범죄자외 출입금지</a></li>
+            <li class="tag"><a href="#">#디너파티</a></li>
+          </ul>
+
+          <div class="stats">
+            <p>평점</p>
+            <div class="grade-gray">
+              <div class="grade-blue"></div>
+              <span class="grade">6.8</span>
+            </div>
+            <div class="btn-wrapper">
+              <button class="reserve" name="호텔 아르테미스">예매하기</button>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="js/movie.js"></script>
+</body>
+</html>

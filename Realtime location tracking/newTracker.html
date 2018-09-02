@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#map{
+			width: 500px;
+			height:500px;
+		}
+	</style>
+	<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		$(document).ready(function(){
+			function setMarker(latitude, longitude){
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(latitude,longitude),
+					map:map
+				});
+			};
+			var socket = io.connect();
+			socket.on('insertId',function(name){
+				socket.emit('join',name);
+				$.getJSON('/id',{"name":name},function(data){
+					console.log(data);
+					$.each(data,function(index,item){
+						setMarker(item.latitude,item.longitude);
+					});
+				});
+				navigator.geolocation.watchPosition(function(position){
+					socket.emit('location',{
+						name : name,
+						latitude : position.coords.latitude,
+						longitude : position.coords.longitude
+					});
+				},function(error){
+					alert(error.message);
+				});
+			});
+			
+			var temp = document.getElementById('map');
+			var map = new google.maps.Map(temp,{
+				zoom:6,
+				center:new google.maps.LatLng(37,126),
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			});
+			socket.on('receive',function(data){
+				var latitude = data.latitude;
+				var longitude = data.longitude;
+				var output = '';
+				output += '<h3>latitude: ' + latitude + '</h3>';
+				output += '<h3>longitude: ' + longitude + '</h3>';
+				output += '<p>' + data.date + '</p>';
+				$('<li class="product"></li>').append(output).prependTo('.information');
+				var content = $('.information');
+				if(content.children().length > 7){
+					content.children().last().remove();
+				}
+				setMarker(data.latitude,data.longitude);
+			});
+		});
+	</script>
+	<title>맵~</title>
+</head>
+<body>
+	<div class="position-information">
+		<ul class="information">
+			
+		</ul>
+	</div>
+	<div id="map">
+	</div>
+</body>
+</html>
